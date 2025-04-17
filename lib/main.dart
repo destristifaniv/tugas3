@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
-import 'login_page.dart'; // Import halaman login
-import 'calculator.dart';
-import 'temperature_converter.dart';
+import 'package:provider/provider.dart'; // Tambahkan ini
+import 'login_page.dart'; // Halaman login
+import 'calculator.dart'; // Kalkulator (pakai provider)
+import 'temperature_converter.dart'; // Konversi suhu
+import 'calculator_provider.dart'; // Provider untuk kalkulator
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider( // Tambahkan Provider di sini
+      create: (_) => CalculatorProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +25,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyLoginPage(), // ganti halamamn utama menjadi login
+      home: const MyLoginPage(), // Halaman awal login
     );
   }
 }
@@ -42,7 +49,7 @@ class MyHomePage extends StatelessWidget {
         ),
         body: const TabBarView(
           children: [
-            CalculatorWidget(),
+            CalculatorWidget(), // Menggunakan provider di dalamnya
             TemperatureConverterWidget(),
           ],
         ),

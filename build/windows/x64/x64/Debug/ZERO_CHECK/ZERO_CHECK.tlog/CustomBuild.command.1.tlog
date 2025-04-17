@@ -1,0 +1,10 @@
+^D:\KULYAH\SEMESTER 4\WORKSHOP PEMROGRAMAN PERANGKAT BERGERAK\KALKULATOR_KONVERSI\TUGAS3\BUILD\WINDOWS\X64\CMAKEFILES\5761D94CFFFD27F47F877D7ABF05D35B\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/windows" "-BD:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/build/windows/x64" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/build/windows/x64/tugas3.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

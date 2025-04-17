@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\build\windows\x64\CMakeFiles\34966c9cf6b0cc8d842580a344dcd8c8\flutter_windows.dll.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\build\windows\x64\CMakeFiles\ab4c3024b86e622adbb512ca951c38d8\flutter_assemble.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\windows\flutter\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\build\windows\x64\flutter\CMakeFiles\flutter_assemble" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C71CE50D-DC6C-304F-83AA-34F2932D86E4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

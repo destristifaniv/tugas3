@@ -1,103 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:math_expressions/math_expressions.dart';
+import 'package:provider/provider.dart';
+import 'calculator_provider.dart';
 
-class CalculatorWidget extends StatefulWidget {
+class CalculatorWidget extends StatelessWidget {
   const CalculatorWidget({super.key});
 
   @override
-  State<CalculatorWidget> createState() => _CalculatorWidgetState();
-}
-
-class _CalculatorWidgetState extends State<CalculatorWidget> {
-  String _expression = "";
-  String _output = "0";
-
-  void _onPressed(String value) {
-    setState(() {
-      if (value == "C") {
-        _expression = "";
-        _output = "0";
-      } else if (value == "=") {
-        try {
-          Parser p = Parser();
-          Expression exp = p.parse(_expression);
-          ContextModel cm = ContextModel();
-          _output = exp.evaluate(EvaluationType.REAL, cm).toString();
-        } catch (e) {
-          _output = "Error";
-        }
-      } else {
-        _expression += value;
-      }
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<CalculatorProvider>(context);
+
+    List<String> buttons = [
+      "7", "8", "9", "/",
+      "4", "5", "6", "*",
+      "1", "2", "3", "-",
+      "C", "0", "=", "+"
+    ];
+
     return Scaffold(
-      backgroundColor: Colors.white, // Background putih tanpa gradient
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              // Tampilan ekspresi
               Expanded(
                 child: Align(
                   alignment: Alignment.centerRight,
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Text(
-                      _expression,
+                      provider.expression,
                       style: const TextStyle(fontSize: 28, color: Colors.black87),
                     ),
                   ),
                 ),
               ),
-
-              // Tampilan hasil
               Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
                   child: Text(
-                    _output,
+                    provider.output,
                     style: const TextStyle(
                       fontSize: 40,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFFBB8FCE), // Warna hasil ungu lembut
+                      color: Color(0xFFBB8FCE),
                     ),
                   ),
                 ),
               ),
-
               const SizedBox(height: 10),
-
-              // Grid tombol dengan warna pastel
               GridView.builder(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 4,
-                  childAspectRatio: 1.8, // Ukuran tombol lebih kecil
+                  childAspectRatio: 1.8,
                 ),
-                itemCount: 16,
+                itemCount: buttons.length,
                 itemBuilder: (context, index) {
-                  List<String> buttons = [
-                    "7", "8", "9", "/",
-                    "4", "5", "6", "*",
-                    "1", "2", "3", "-",
-                    "C", "0", "=", "+"
-                  ];
-
-                  // Warna tombol berdasarkan jenisnya
-                  Color buttonColor = const Color(0xFFAEDFF7); // Default angka biru pastel
-                  if (buttons[index] == "C") {
-                    buttonColor = const Color(0xFFF5B7B1); // Tombol "C" pink pastel
-                  } else if (buttons[index] == "=") {
-                    buttonColor = const Color(0xFFA9DFBF); // Tombol "=" hijau pastel
-                  } else if (["/", "*", "-", "+"].contains(buttons[index])) {
-                    buttonColor = const Color(0xFFD7BDE2); // Operator warna ungu pastel
+                  String value = buttons[index];
+                  Color buttonColor = const Color(0xFFAEDFF7);
+                  if (value == "C") {
+                    buttonColor = const Color(0xFFF5B7B1);
+                  } else if (value == "=") {
+                    buttonColor = const Color(0xFFA9DFBF);
+                  } else if (["/", "*", "-", "+"].contains(value)) {
+                    buttonColor = const Color(0xFFD7BDE2);
                   }
 
                   return Padding(
@@ -107,13 +76,13 @@ class _CalculatorWidgetState extends State<CalculatorWidget> {
                         backgroundColor: buttonColor,
                         padding: const EdgeInsets.all(12),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12), // Tombol lebih membulat
+                          borderRadius: BorderRadius.circular(12),
                         ),
                       ),
-                      onPressed: () => _onPressed(buttons[index]),
+                      onPressed: () => provider.onPressed(value),
                       child: Text(
-                        buttons[index],
-                        style: const TextStyle(fontSize: 20, color: Colors.black), // Warna teks tombol hitam
+                        value,
+                        style: const TextStyle(fontSize: 20, color: Colors.black),
                       ),
                     ),
                   );

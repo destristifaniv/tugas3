@@ -1,0 +1,28 @@
+^D:\KULYAH\SEMESTER 4\WORKSHOP PEMROGRAMAN PERANGKAT BERGERAK\KALKULATOR_KONVERSI\TUGAS3\BUILD\WINDOWS\X64\CMAKEFILES\34966C9CF6B0CC8D842580A344DCD8C8\FLUTTER_WINDOWS.DLL.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E env FLUTTER_ROOT=C:\src\flutter "PROJECT_DIR=D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3" FLUTTER_ROOT=C:\src\flutter "FLUTTER_EPHEMERAL_DIR=D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\windows\flutter\ephemeral" "PROJECT_DIR=D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3" "FLUTTER_TARGET=D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\lib\main.dart" DART_OBFUSCATION=false TRACK_WIDGET_CREATION=true TREE_SHAKE_ICONS=false "PACKAGE_CONFIG=D:\Kulyah\Semester 4\Workshop Pemrograman Perangkat Bergerak\kalkulator_konversi\tugas3\.dart_tool\package_config.json" C:/src/flutter/packages/flutter_tools/bin/tool_backend.bat windows-x64 Debug
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\KULYAH\SEMESTER 4\WORKSHOP PEMROGRAMAN PERANGKAT BERGERAK\KALKULATOR_KONVERSI\TUGAS3\BUILD\WINDOWS\X64\CMAKEFILES\AB4C3024B86E622ADBB512CA951C38D8\FLUTTER_ASSEMBLE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^D:\KULYAH\SEMESTER 4\WORKSHOP PEMROGRAMAN PERANGKAT BERGERAK\KALKULATOR_KONVERSI\TUGAS3\WINDOWS\FLUTTER\CMAKELISTS.TXT
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/windows" "-BD:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/build/windows/x64" --check-stamp-file "D:/Kulyah/Semester 4/Workshop Pemrograman Perangkat Bergerak/kalkulator_konversi/tugas3/build/windows/x64/flutter/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
